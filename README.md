@@ -42,7 +42,7 @@ type Coordenada = (Int, Int)
 ```
 - `Coordenada`: Um tipo que representa a posição no grid do jogo, armazenando pares de inteiros (x, y).
 
-###3. Estrutura do Jogo
+### 3. Estrutura do Jogo
 
 ```haskell
 
