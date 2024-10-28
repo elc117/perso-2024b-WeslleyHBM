@@ -1,5 +1,6 @@
 # 🐍🍎Jogo Da Serpente Em Haskell🍎🐍
 ## TRABALHO DE PARADIGMAS DA PROGRAMAÇÃO EM HASKELL
+
 ### O que era o trabalho:
 
 ```texto
@@ -16,8 +17,12 @@ Resultado final: demonstração de execução em GIF animado ou vídeo curto (m�
 Referências e créditos (incluindo algumas solicitações, se aplicável)
 ```
 
+## Indentificação
+  - `Nome`: Weslley Henrique De Bitencourt Menezes;
+  - `Curso`: Sistemas de Informação | UFSM.
+
 ## Descrição
-Para o meu trabalho optei por utilizar da biblioteca CodeWorld e o espaço que suporta esta biblioteca, Organizei estudos de algumas funçoes para esta biblioteca para inplementar um codigo simples do jogo classico da cobrinha, tive muitas dificuldades, as quais estaraão brevemente descritas em um dos campos a baixo, a partir de meus estudo cheguei em uma versão brevemente finalizada, porem funcional do codigo.
+Para o meu trabalho optei por utilizar da biblioteca CodeWorld e o espaço que suporta esta biblioteca, organizei estudos de algumas funções para está biblioteca para inplementar um código simples do jogo clássico da cobrinha, tive muitas dificuldades, as quais estarão brevemente descritas em um dos campos a baixo. A partir de meus estudo cheguei em uma versão brevemente finalizada, porem funcional do codigo, como descrito na solicitação de iniciativa utilizei das ferramentas da biblioteca para criar algo "novo" e do zero ao contrario de ficar em circulos apenas analisando o cófigo da professora.
 
 ## Inspiração para o trabalho
 Utilizei de inpiração um dos projetos antigos de lab 2 porem em lab 2 ele era efetuado em C e fazia uso de listas sirculares então enquanto pesquisava vi que dava para fazer algo assim com o codeworld e me interecei.
@@ -150,6 +155,7 @@ atualizarJogo _ jogo = jogo
 ```
 
   - Esta parte verifica se o jogo terminou e, caso contrário, atualiza a posição da cobra com base na direção, gera um novo alimento se a cobra o comer, e ajusta a velocidade da cobra.
+  - Nesta parte me enbananei muito mas aos poucos pude encontrar meus erros
 
 ### 7. Movimentação e Colisões
 **Movimentar a Cobra**
@@ -246,7 +252,7 @@ desenharBordas = colored black (solidRectangle 22 22) <> colored white (solidRec
 
 ## Conclusão
 
-Esse código forma a base do jogo da cobrinha, com a estrutura de dados, lógica de movimento, detecção de colisões e renderização visual. Você pode expandi-lo adicionando pontuação, efeitos
+Este código foi bom para estudar algumas ferramentas da linguagem por mais que eu não tenha ficado 100% satifeito com o resultado final, ao menos vejo como uma vantagem ter gerado um código que ao menos compila e cumpre com a função que lhe foi encarregada, mas uma coisa que ficou bem aparente é que, não sei Haskell porem sinto que após a implementação deste código me senti um compo mais conhecedor desta linguagem que abranje tantos campos.
 
 ## Bibliografia
 
