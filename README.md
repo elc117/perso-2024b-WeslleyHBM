@@ -17,8 +17,10 @@ Referências e créditos (incluindo algumas solicitações, se aplicável)
 ```
 
 ## Descrição
+Para o meu trabalho optei por utilizar da biblioteca CodeWorld e o espaço que suporta esta biblioteca, Organizei estudos de algumas funçoes para esta biblioteca para inplementar um codigo simples do jogo classico da cobrinha, tive muitas dificuldades, as quais estaraão brevemente descritas em um dos campos a baixo, a partir de meus estudo cheguei em uma versão brevemente finalizada, porem funcional do codigo.
 
-
+## CodeWorld
+  - [CodeWorld](https://code.world/haskell#): Link para o site que compila esta biblioteca.
 
 ## Explicação do código
 ### 1. Extensão do Haskell e Importações
@@ -30,9 +32,9 @@ import CodeWorld
 import System.Random (StdGen, mkStdGen, randomR, randomIO)
 ```
 
-- `{-# LANGUAGE OverloadedStrings #-}`: Ativa a extensão `OverloadedStrings`, permitindo que strings sejam tratadas de maneira mais flexível.
-- `import CodeWorld`: Importa a biblioteca CodeWorld, que fornece funções para criar gráficos e interatividade.
-- `import System.Random`: Importa funções para trabalhar com geração de números aleatórios, essenciais para posicionar o alimento da cobra de forma aleatória.
+  - `{-# LANGUAGE OverloadedStrings #-}`: Ativa a extensão `OverloadedStrings`, permitindo que strings sejam tratadas de maneira mais flexível.
+  - `import CodeWorld`: Importa a biblioteca CodeWorld, que fornece funções para criar gráficos e interatividade.
+  - `import System.Random`: Importa funções para trabalhar com geração de números aleatórios, essenciais para posicionar o alimento da cobra de forma aleatória.
 
 ### 2. Definição de Tipos
 
@@ -40,7 +42,8 @@ import System.Random (StdGen, mkStdGen, randomR, randomIO)
 
 type Coordenada = (Int, Int)
 ```
-- `Coordenada`: Um tipo que representa a posição no grid do jogo, armazenando pares de inteiros (x, y).
+
+  - `Coordenada`: Um tipo que representa a posição no grid do jogo, armazenando pares de inteiros (x, y).
 
 ### 3. Estrutura do Jogo
 
@@ -117,6 +120,7 @@ atualizarJogo (KeyPress "Down") jogo = jogo { direcao = (0, -1) }
 atualizarJogo (KeyPress "Left") jogo = jogo { direcao = (-1, 0) }
 atualizarJogo (KeyPress "Right") jogo = jogo { direcao = (1, 0) }
 ```
+
   - Estas linhas alteram a direção da cobra com base nas teclas pressionadas.
 
 **Lógica de Atualização**
@@ -141,6 +145,7 @@ atualizarJogo (TimePassing _) jogo
             else jogo { contagemTicks = novaContagemTicks }
 atualizarJogo _ jogo = jogo
 ```
+
   - Esta parte verifica se o jogo terminou e, caso contrário, atualiza a posição da cobra com base na direção, gera um novo alimento se a cobra o comer, e ajusta a velocidade da cobra.
 
 ### 7. Movimentação e Colisões
@@ -154,6 +159,7 @@ moverCobra ((x, y):xs) (dx, dy) alimento
     | otherwise = (x + dx, y + dy) : init ((x, y):xs)
 moverCobra [] _ _ = []
 ```
+
   - `moverCobra`: Atualiza a posição da cobra.
   - Se a cobra atingir o alimento, aumenta o corpo da cobra.
   - Caso contrário, a cobra se move, descartando a última parte do corpo.
@@ -180,6 +186,7 @@ gerarAlimentoAleatorio gen corpoCobra =
        then gerarAlimentoAleatorio genFinal corpoCobra
        else ((x, y), genFinal)
 ```
+
   - `gerarAlimentoAleatorio`: Gera uma nova posição aleatória para o alimento, garantindo que não esteja em uma posição ocupada pela cobra.
 
 ### 9. Desenho do Jogo
@@ -192,6 +199,7 @@ desenharJogo (JogoCobra cobra alimento _ fimDeJogo _ _)
     | fimDeJogo = scaled 3 3 (lettering "Fim de Jogo")
     | otherwise = pictures [desenharCobra cobra, desenharAlimento alimento, desenharBordas]
 ```
+
   - `desenharJogo`: Retorna a representação gráfica do estado atual do jogo, desenhando a cobra, o alimento e as bordas.
 
 **Desenho da Cobra**
@@ -203,6 +211,7 @@ desenharCobra = pictures . map desenharSegmento
   where
     desenharSegmento (x, y) = translated (fromIntegral x) (fromIntegral y) (colored green (solidRectangle 1 1))
 ```
+
   - `desenharCobra`: Desenha cada segmento do corpo da cobra na cor verde.
 
 **Desenho do Alimento**
@@ -212,6 +221,7 @@ desenharCobra = pictures . map desenharSegmento
 desenharAlimento :: Coordenada -> Picture
 desenharAlimento (x, y) = translated (fromIntegral x) (fromIntegral y) (colored red (solidCircle 0.5))
 ```
+
   - `desenharAlimento`: Desenha o alimento na cor vermelha.
 
 **Desenho das Bordas**
