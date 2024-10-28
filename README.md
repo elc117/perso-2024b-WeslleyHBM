@@ -19,6 +19,9 @@ Referências e créditos (incluindo algumas solicitações, se aplicável)
 ## Descrição
 Para o meu trabalho optei por utilizar da biblioteca CodeWorld e o espaço que suporta esta biblioteca, Organizei estudos de algumas funçoes para esta biblioteca para inplementar um codigo simples do jogo classico da cobrinha, tive muitas dificuldades, as quais estaraão brevemente descritas em um dos campos a baixo, a partir de meus estudo cheguei em uma versão brevemente finalizada, porem funcional do codigo.
 
+## Inspiração para o trabalho
+Utilizei de inpiração um dos projetos antigos de lab 2 porem em lab 2 ele era efetuado em C e fazia uso de listas sirculares então enquanto pesquisava vi que dava para fazer algo assim com o codeworld e me interecei.
+
 ## CodeWorld
   - [CodeWorld](https://code.world/haskell#): Link para o site que compila esta biblioteca.
 
@@ -222,7 +225,7 @@ desenharAlimento :: Coordenada -> Picture
 desenharAlimento (x, y) = translated (fromIntegral x) (fromIntegral y) (colored red (solidCircle 0.5))
 ```
 
-  - `desenharAlimento`: Desenha o alimento na cor vermelha.
+  - `desenharAlimento`: Desenha o alimento na cor vermelha para que se pareça uma "maça".
 
 **Desenho das Bordas**
 
@@ -234,6 +237,19 @@ desenharBordas = colored black (solidRectangle 22 22) <> colored white (solidRec
 
   - `desenharBordas`: Desenha as bordas do campo de jogo.
 
+## Principais Problemas que tive
+
+  - **Interpretação**: Tive muito problema na parte de interpretar a linguagem e perceber os pontos em que a logica se difere da logica de programação que eu conheço.
+  - **Almentar a serpente**: de começo fiz taapenas um quadrado verde que se movimentava pelo mapa e quando fui modificar a logica, fiquei algumas horas pensando onde estava errando, até perceber, que eu estava sempre apagando a posição anterior da cobra mesmo quando ela comia uma "fruta".
+  - **Controle de velocidade**: demorei um tempo para pensar em um esquema de velocidade funcional pois de inicio ou ele começava muito rapido ou tinha um hiper pico de velocidade e no fim convertir tudo para float e diminui a distancia em frações pequenas.
+  - **Implementação mais funcional e bonita**: Atualmente eu tenho dois códigos, sendo um deles o que estou entregando como meu trabalho, mas ele se encaixa mais como um prototipo do que uma versão final e tambem tenho uma versão um pouco mais avançada que tambem anexarei aqui, mas que consta com multiplos erros de implementação que não consegui corrigir.
+
 ## Conclusão
 
 Esse código forma a base do jogo da cobrinha, com a estrutura de dados, lógica de movimento, detecção de colisões e renderização visual. Você pode expandi-lo adicionando pontuação, efeitos
+
+## Bibliografia
+
+  - O proprio guia do [codeWorld](https://code.world/haskell#), onde estudei funções e funcionamentos;
+  - O [chat GPT](https://chatgpt.com/), para tradução e exclarecimento de erros de compilação e de funcionalidade de atalhos;
+  - e um [site de Haskell](https://hackage.haskell.org/package/codeworld-api) que explicava algumas coisas,(usei esta pouco, pois não entendi muito).
